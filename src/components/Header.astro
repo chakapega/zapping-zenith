@@ -1,0 +1,477 @@
+---
+// Header component with semantic markup and BEM classes
+---
+
+<header class='header'>
+  <div class='header__container'>
+    <!-- Logo Section -->
+    <div class='header__logo'>
+      <a href='/' class='header__logo-link'>
+        <span class='header__logo-icon'>Лого</span>
+      </a>
+    </div>
+
+    <!-- Navigation Section -->
+    <nav class='header__nav' aria-label='Основная навигация'>
+      <ul class='header__menu'>
+        <li class='header__menu-item header__menu-item--dropdown'>
+          <button
+            class='header__menu-link header__menu-link--dropdown'
+            aria-expanded='false'
+            aria-haspopup='true'
+            id='services-button'
+          >
+            Услуги
+            <svg
+              class='header__menu-icon'
+              width='10'
+              height='6'
+              viewBox='0 0 10 6'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+							id='services-button-icon'
+            >
+              <path
+                d='M1 1L5 5L9 1'
+                stroke='currentColor'
+                stroke-width='1.5'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+              >
+              </path>
+            </svg>
+          </button>
+          <ul class='header__submenu' aria-labelledby='services-button'>
+            <li class='header__submenu-item'>
+              <a href='/services/izgotovlenie' class='header__submenu-link'>Изготовление</a>
+            </li>
+            <li class='header__submenu-item'>
+              <a href='/services/montazh' class='header__submenu-link'>Монтаж</a>
+            </li>
+            <li class='header__submenu-item'>
+              <a href='/services/proektirovanie' class='header__submenu-link'>Проектирование</a>
+            </li>
+            <li class='header__submenu-item'>
+              <a href='/services/arenda' class='header__submenu-link'>Аренда</a>
+            </li>
+          </ul>
+        </li>
+        <li class='header__menu-item'>
+          <a href='/projects' class='header__menu-link'>Реализованные проекты</a>
+        </li>
+        <li class='header__menu-item'>
+          <a href='/about' class='header__menu-link'>О нас</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Contact and CTA Section -->
+    <div class='header__contacts'>
+      <div class='header__contact-info'>
+        <a href='tel:+375291399742' class='header__contact-link'>+375 (44) 558-81-06</a>
+        <a href='tel:+375173046047' class='header__contact-link'>+375 (44) 558-81-06</a>
+        <a href='mailto:opalubka@a-modul.com' class='header__contact-link'>chakapega@gmail.com</a>
+      </div>
+      <button class='header__cta-button' type='button'>Заказать звонок</button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class='header__burger' type='button' aria-label='Открыть меню' aria-expanded='false' id='burger-button'>
+      <span class='header__burger-line'></span>
+      <span class='header__burger-line'></span>
+      <span class='header__burger-line'></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const burgerButton = document.getElementById("burger-button");
+  const nav = document.querySelector(".header__nav");
+  const header = document.querySelector(".header");
+
+  if (burgerButton && nav) {
+    burgerButton.addEventListener("click", () => {
+      const isExpanded = burgerButton.getAttribute("aria-expanded") === "true";
+      burgerButton.setAttribute("aria-expanded", String(!isExpanded));
+      nav.classList.toggle("header__nav--open");
+      header?.classList.toggle("header--menu-open");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      const target = e.target as Node;
+      if (target && !nav.contains(target) && !burgerButton.contains(target)) {
+        burgerButton.setAttribute("aria-expanded", "false");
+        nav.classList.remove("header__nav--open");
+        header?.classList.remove("header--menu-open");
+      }
+    });
+
+    // Close menu on window resize to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1024) {
+        burgerButton.setAttribute("aria-expanded", "false");
+        nav.classList.remove("header__nav--open");
+        header?.classList.remove("header--menu-open");
+      }
+    });
+  }
+
+  // Dropdown menu functionality
+  const servicesButton = document.getElementById("services-button");
+	const servicesButtonIcon = document.getElementById("services-button-icon");
+  const servicesDropdown = servicesButton?.nextElementSibling as HTMLElement;
+
+  if (servicesButton && servicesDropdown) {
+    servicesButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isExpanded = servicesButton.getAttribute("aria-expanded") === "true";
+      servicesButton.setAttribute("aria-expanded", String(!isExpanded));
+      servicesDropdown.classList.toggle("header__submenu--open");
+			servicesButtonIcon?.classList.toggle("header__menu-icon--open");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      const target = e.target as Node;
+      if (target && !servicesButton.contains(target) && !servicesDropdown.contains(target)) {
+        servicesButton.setAttribute("aria-expanded", "false");
+        servicesDropdown.classList.remove("header__submenu--open");
+				servicesButtonIcon?.classList.remove("header__menu-icon--open");
+      }
+    });
+  }
+</script>
+
+<style>
+  .header {
+    background-color: #1a73e8;
+    color: #ffffff;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .header__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+    gap: 40px;
+  }
+
+  /* Logo Section */
+  .header__logo {
+    flex-shrink: 0;
+  }
+
+  .header__logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  .header__logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 40px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #1a73e8;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  /* Navigation Section */
+  .header__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header__menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__menu-item {
+    position: relative;
+  }
+
+  .header__menu-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__menu-link:hover {
+    opacity: 0.8;
+  }
+
+  .header__menu-link--dropdown {
+    position: relative;
+  }
+
+  .header__menu-icon {
+    width: 10px;
+    height: 6px;
+    transition: transform 0.3s ease;
+  }
+
+  .header__menu-icon--open {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
+
+  .header__menu-item--dropdown[aria-expanded="true"] .header__menu-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Submenu */
+  .header__submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    margin: 8px 0 0 0;
+    padding: 8px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
+    z-index: 1001;
+  }
+
+  .header__submenu--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .header__submenu-item {
+    margin: 0;
+  }
+
+  .header__submenu-link {
+    display: block;
+    padding: 12px 20px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+  }
+
+  .header__submenu-link:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Contact Section */
+  .header__contacts {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+  }
+
+  .header__contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .header__contact-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__contact-link:hover {
+    opacity: 0.8;
+  }
+
+  .header__cta-button {
+    background-color: #ffffff;
+    color: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s ease,
+      transform 0.1s ease;
+    font-family: inherit;
+  }
+
+  .header__cta-button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .header__cta-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Burger Menu */
+  .header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+  }
+
+  .header__burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .header--menu-open .header__burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 8px);
+  }
+
+  .header--menu-open .header__burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header--menu-open .header__burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -8px);
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 1024px) {
+    .header__burger {
+      display: flex;
+    }
+
+    .header__nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #1a73e8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .header__nav--open {
+      max-height: 100vh;
+    }
+
+    .header__menu {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 20px;
+    }
+
+    .header__menu-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header__menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .header__menu-link {
+      width: 100%;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+		.header__menu-icon {
+			margin-right: 10px;
+		}
+
+    .header__submenu {
+      position: static;
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+      transform: none;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .header__submenu--open {
+      max-height: 500px;
+      padding: 8px 0;
+    }
+
+    .header__submenu-link {
+      color: #ffffff;
+      padding-left: 32px;
+    }
+
+    .header__submenu-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .header__contacts {
+      display: none;
+    }
+
+    .header__container {
+      min-height: 70px;
+      padding: 0 16px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .header__logo-icon {
+      height: 36px;
+      font-size: 18px;
+    }
+
+    .header__container {
+      min-height: 60px;
+    }
+  }
+</style>
