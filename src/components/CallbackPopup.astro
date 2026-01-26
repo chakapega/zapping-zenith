@@ -1,5 +1,6 @@
 ---
 // Callback Popup Component with form
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
 ---
 
 <div class="popup" id="callback-popup" aria-hidden="true" role="dialog" aria-labelledby="popup-title">
@@ -36,7 +37,7 @@
 
     <!-- Form -->
     <form class="popup__form" id="callback-form">
-      <input type="hidden" name="access_key" value="c272d69d-1b5a-4b41-9cb5-25b8e40822eb">
+      <input type="hidden" name="access_key" value={accessKey}>
       <div class="popup__form-group">
         <label for="callback-name" class="popup__label">Имя</label>
         <input 
