@@ -1,0 +1,294 @@
+---
+interface Project {
+  image: string;
+  description: string;
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section class='projects-section'>
+  <div class='projects-section__header'>
+    <div class='projects-section__title-wrapper'>
+      <h2 class='projects-section__title'>
+        Реализованные проекты
+      </h2>
+      <p class='projects-section__subtitle'>
+        Мы гордимся прозрачностью нашей работы и готовы показать реальные результаты.
+      </p>
+    </div>
+    <div class='projects-section__controls'>
+      <button
+        class='projects-section__nav-button projects-section__nav-button--prev'
+        aria-label='Предыдущий проект'
+        id='prev-button'
+      >
+        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M15 18L9 12L15 6'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          >
+          </path>
+        </svg>
+      </button>
+      <button
+        class='projects-section__nav-button projects-section__nav-button--next'
+        aria-label='Следующий проект'
+        id='next-button'
+      >
+        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M9 18L15 12L9 6'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          >
+          </path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class='projects-section__carousel-wrapper'>
+    <div class='projects-section__carousel' id='projects-carousel'>
+      {
+        projects.map((project) => (
+          <div class='projects-section__card'>
+            <div class='projects-section__card-image'>
+              <img src={project.image} alt={project.description} loading='lazy' />
+            </div>
+            <div class='projects-section__card-content'>
+              <p class='projects-section__card-text'>{project.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding-top: 60px;
+    background-color: var(--hover-white-btn);
+  }
+
+  .projects-section__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    gap: 20px;
+    max-width: 1200px;
+  }
+
+  .projects-section__title-wrapper {
+    flex: 1;
+  }
+
+  .projects-section__title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: var(--primary-color);
+  }
+
+  .projects-section__subtitle {
+    font-size: 16px;
+    color: var(--secondary-color);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .projects-section__controls {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .projects-section__nav-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background-color 0.2s ease,
+      transform 0.1s ease;
+    flex-shrink: 0;
+  }
+
+  .projects-section__nav-button:hover {
+    background-color: #2980b9;
+  }
+
+  .projects-section__nav-button:active {
+    transform: scale(0.95);
+  }
+
+  .projects-section__nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .projects-section__nav-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .projects-section__carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .projects-section__carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 40px 0 60px 0;
+  }
+
+  .projects-section__carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects-section__card {
+    flex: 0 0 420px;
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-section__card:first-child {
+    margin-left: 20px;
+  }
+
+  .projects-section__card:last-child {
+    margin-right: 20px;
+  }
+
+  .projects-section__card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01);
+  }
+
+  .projects-section__card-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #e0e0e0;
+  }
+
+  .projects-section__card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .projects-section__card-content {
+    padding: 20px;
+    flex: 1;
+  }
+
+  .projects-section__card-text {
+    font-size: 16px;
+    color: var(--secondary-color);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .projects-section {
+      padding-top: 40px;
+    }
+
+    .projects-section__header {
+      flex-direction: column;
+      padding: 0 20px 0 20px;
+    }
+
+    .projects-section__title {
+      font-size: 36px;
+    }
+
+    .projects-section__controls {
+      align-self: flex-end;
+    }
+
+    .projects-section__card {
+      flex: 0 0 320px;
+    }
+
+    .projects-section__card-image {
+      height: 240px;
+    }
+  }
+</style>
+
+<script>
+  const initCarousel = () => {
+    const carousel = document.getElementById("projects-carousel");
+    const prevButton = document.getElementById("prev-button");
+    const nextButton = document.getElementById("next-button");
+
+    if (!carousel || !prevButton || !nextButton) return;
+
+    const updateButtons = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = carousel;
+      const isAtStart = scrollLeft <= 0;
+      const isAtEnd = scrollLeft >= scrollWidth - clientWidth - 10;
+
+      (prevButton as HTMLButtonElement).disabled = isAtStart;
+      (nextButton as HTMLButtonElement).disabled = isAtEnd;
+    };
+
+    const scrollCarousel = (direction: "prev" | "next") => {
+      const cardWidth = carousel.querySelector(".projects-section__card")?.clientWidth || 380;
+      const scrollAmount = cardWidth;
+
+      if (direction === "prev") {
+        carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    };
+
+    prevButton.addEventListener("click", () => scrollCarousel("prev"));
+    nextButton.addEventListener("click", () => scrollCarousel("next"));
+
+    carousel.addEventListener("scroll", updateButtons);
+    window.addEventListener("resize", updateButtons);
+
+    updateButtons();
+  };
+
+  initCarousel();
+  document.addEventListener("astro:after-swap", initCarousel);
+</script>

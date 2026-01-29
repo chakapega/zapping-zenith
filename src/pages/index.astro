@@ -1,14 +1,50 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ImageTriple from '../components/ImageTriple.astro';
+import Layout from "../layouts/Layout.astro";
+import ImageTriple from "../components/ImageTriple.astro";
+import ProjectsCarousel from "../components/ProjectsCarousel.astro";
 
-import img1 from '../assets/image_triple_1.jpg';
-import img2 from '../assets/image_triple_2.jpg';
-import img3 from '../assets/image_triple_3.jpg';
+import img1 from "../assets/image_triple_1.jpg";
+import img2 from "../assets/image_triple_2.jpg";
+import img3 from "../assets/image_triple_3.jpg";
+
+import projectImage1 from "../assets/project1.jpg";
+import projectImage2 from "../assets/project2.jpg";
 
 const myImages = [img1.src, img2.src, img3.src];
+
+const projects = [
+  {
+    image: projectImage1.src,
+    description: "Национальная библиотека Беларуси",
+  },
+  {
+    image: projectImage2.src,
+    description: "Белорусская атомная электростанция",
+  },
+  {
+    image: projectImage1.src,
+    description: "Национальная библиотека Беларуси",
+  },
+  {
+    image: projectImage2.src,
+    description: "Белорусская атомная электростанция",
+  },
+  {
+    image: projectImage1.src,
+    description: "Национальная библиотека Беларуси",
+  },
+  {
+    image: projectImage2.src,
+    description: "Белорусская атомная электростанция",
+  },
+  {
+    image: projectImage1.src,
+    description: "Национальная библиотека Беларуси",
+  },
+];
 ---
 
 <Layout>
   <ImageTriple images={myImages} />
+  <ProjectsCarousel projects={projects} />
 </Layout>
