@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import ImageTriple from "../components/ImageTriple.astro";
 import ProjectsCarousel from "../components/ProjectsCarousel.astro";
+import Map from "../components/Map.astro";
 
 import img1 from "../assets/image_triple_1.jpg";
 import img2 from "../assets/image_triple_2.jpg";
@@ -47,4 +48,5 @@ const projects = [
 <Layout>
   <ImageTriple images={myImages} />
   <ProjectsCarousel projects={projects} />
+  <Map />
 </Layout>
