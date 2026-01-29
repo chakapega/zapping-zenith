@@ -30,7 +30,7 @@ const { images } = Astro.props;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   .fade-slide {
@@ -47,6 +47,10 @@ const { images } = Astro.props;
   }
 
   @media (max-width: 1024px) {
+    .fade-container::after {
+      z-index: 1;
+    }
+
     .fade-slide {
       position: absolute;
       top: 0;

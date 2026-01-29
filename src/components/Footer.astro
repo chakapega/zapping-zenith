@@ -1,0 +1,86 @@
+<footer>
+  <div class='footer-container'>
+    <section class='footer-section'>
+      <h4>СтальТехСервис</h4>
+      <p>
+        Предоставляем полный спектр услуг по изготовлению, монтажу, проектированию и аренде
+        металлоконструкций в Минске и Беларуси.
+      </p>
+    </section>
+
+    <nav class='footer-section'>
+      <h4>Услуги</h4>
+      <ul>
+        <li><a href='/services/izgotovlenie'>Изготовление</a></li>
+        <li><a href='/services/montazh'>Монтаж</a></li>
+        <li><a href='/services/proektirovanie'>Проектирование</a></li>
+        <li><a href='/services/arenda'>Аренда</a></li>
+        <li><a href='/services/arenda'>Реализованные проекты</a></li>
+        <li><a href='/services/arenda'>О нас</a></li>
+      </ul>
+    </nav>
+
+    <section class='footer-section'>
+      <h4>Контакты</h4>
+      <p>Телефон: <a href='tel:+375296107899'>+375 (29) 610-78-99</a></p>
+      <p>Телефон: <a href='tel:+375291579563'>+375 (29) 157-95-63</a></p>
+      <p>Email: <a href='mailto:sts0825@mail.ru'>sts0825@mail.ru</a></p>
+      <p><a href='#callback' class='callback-link'>Заказать звонок</a></p>
+    </section>
+  </div>
+</footer>
+
+<style>
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+  }
+
+  .footer-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .footer-section a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+
+  .social-icons a {
+    margin-right: 10px;
+    font-size: 1.5em;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+</style>

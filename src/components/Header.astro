@@ -1,20 +1,17 @@
 ---
-// Header component with semantic markup and BEM classes
 import CallbackPopup from "./CallbackPopup.astro";
 import logo from '../assets/logo1.png';
 ---
 
 <header class='header'>
   <div class='header__container'>
-    <!-- Logo Section -->
     <div class='header__logo'>
-      <a href='/' class='header__logo-link'>
-        <img src={logo.src} alt='Лого' class='header__logo-icon'>
-        <span class='header__logo-text'>СтальТехСервис</span>
+      <a href='/'>
+        <img src={logo.src} alt='Лого'>
+        <span>СтальТехСервис</span>
       </a>
     </div>
 
-    <!-- Navigation Section -->
     <nav class='header__nav' aria-label='Основная навигация'>
       <ul class='header__menu'>
         <li class='header__menu-item header__menu-item--dropdown'>
@@ -68,7 +65,6 @@ import logo from '../assets/logo1.png';
       </ul>
     </nav>
 
-    <!-- Contact and CTA Section -->
     <div class='header__contacts'>
       <div class='header__contact-info'>
         <a href='tel:+375296107899' class='header__contact-link'>+375 (29) 610-78-99</a>
@@ -78,7 +74,6 @@ import logo from '../assets/logo1.png';
       <button class='header__cta-button' type='button'>Заказать звонок</button>
     </div>
 
-    <!-- Mobile Menu Toggle -->
     <button class='header__burger' type='button' aria-label='Открыть меню' aria-expanded='false' id='burger-button'>
       <span class='header__burger-line'></span>
       <span class='header__burger-line'></span>
@@ -90,7 +85,6 @@ import logo from '../assets/logo1.png';
 <CallbackPopup />
 
 <script>
-  // Mobile menu toggle
   const burgerButton = document.getElementById("burger-button");
   const nav = document.querySelector(".header__nav");
   const header = document.querySelector(".header");
@@ -103,7 +97,6 @@ import logo from '../assets/logo1.png';
       header?.classList.toggle("header--menu-open");
     });
 
-    // Close menu when clicking outside
     document.addEventListener("click", (e) => {
       const target = e.target as Node;
       if (target && !nav.contains(target) && !burgerButton.contains(target)) {
@@ -113,7 +106,6 @@ import logo from '../assets/logo1.png';
       }
     });
 
-    // Close menu on window resize to desktop
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024) {
         burgerButton.setAttribute("aria-expanded", "false");
@@ -123,7 +115,6 @@ import logo from '../assets/logo1.png';
     });
   }
 
-  // Dropdown menu functionality
   const servicesButton = document.getElementById("services-button");
 	const servicesButtonIcon = document.getElementById("services-button-icon");
   const servicesDropdown = servicesButton?.nextElementSibling as HTMLElement;
@@ -137,7 +128,6 @@ import logo from '../assets/logo1.png';
 			servicesButtonIcon?.classList.toggle("header__menu-icon--open");
     });
 
-    // Close dropdown when clicking outside
     document.addEventListener("click", (e) => {
       const target = e.target as Node;
       if (target && !servicesButton.contains(target) && !servicesDropdown.contains(target)) {
@@ -151,7 +141,7 @@ import logo from '../assets/logo1.png';
 
 <style>
   .header {
-    background-color: #1a73e8;
+    background-color: var(--primary-color);
     color: #ffffff;
     width: 100%;
     position: relative;
@@ -169,23 +159,27 @@ import logo from '../assets/logo1.png';
     gap: 40px;
   }
 
-  /* Logo Section */
   .header__logo {
     flex-shrink: 0;
+    transition: transform linear 0.15s;
   }
 
-  .header__logo-link {
+  .header__logo:hover {
+    transform: scale(1.01);
+  }
+
+  .header__logo a {
     display: flex;
     align-items: center;
     gap: 12px;
     text-decoration: none;
-    color: #ffffff;
+    color: var(--white);
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 0.5px;
   }
 
-  .header__logo-icon {
+  .header__logo img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -197,7 +191,6 @@ import logo from '../assets/logo1.png';
     font-size: 20px;
   }
 
-  /* Navigation Section */
   .header__nav {
     flex: 1;
     display: flex;
@@ -221,7 +214,7 @@ import logo from '../assets/logo1.png';
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #ffffff;
+    color: var(--white);
     text-decoration: none;
     font-size: 16px;
     padding: 8px 0;
@@ -256,17 +249,16 @@ import logo from '../assets/logo1.png';
     transform: rotate(180deg);
   }
 
-  /* Submenu */
   .header__submenu {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     list-style: none;
     margin: 8px 0 0 0;
-    padding: 8px 0;
+    padding: 0 0;
     min-width: 200px;
     opacity: 0;
     visibility: hidden;
@@ -276,6 +268,7 @@ import logo from '../assets/logo1.png';
       visibility 0.3s ease,
       transform 0.3s ease;
     z-index: 1001;
+    overflow: hidden;
   }
 
   .header__submenu--open {
@@ -291,7 +284,7 @@ import logo from '../assets/logo1.png';
   .header__submenu-link {
     display: block;
     padding: 12px 20px;
-    color: #1a73e8;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 16px;
     transition: background-color 0.2s ease;
@@ -299,10 +292,9 @@ import logo from '../assets/logo1.png';
   }
 
   .header__submenu-link:hover {
-    background-color: #f0f0f0;
+    background-color: var(--hover-white-btn);
   }
 
-  /* Contact Section */
   .header__contacts {
     display: flex;
     align-items: center;
@@ -317,7 +309,7 @@ import logo from '../assets/logo1.png';
   }
 
   .header__contact-link {
-    color: #ffffff;
+    color: var(--white);
     text-decoration: none;
     font-size: 14px;
     white-space: nowrap;
@@ -329,8 +321,8 @@ import logo from '../assets/logo1.png';
   }
 
   .header__cta-button {
-    background-color: #ffffff;
-    color: #1a73e8;
+    background-color: var(--white);
+    color: var(--primary-color);
     border: none;
     border-radius: 8px;
     padding: 12px 24px;
@@ -345,14 +337,13 @@ import logo from '../assets/logo1.png';
   }
 
   .header__cta-button:hover {
-    background-color: #f0f0f0;
+    background-color: var(--hover-white-btn);
   }
 
   .header__cta-button:active {
     transform: scale(0.98);
   }
 
-  /* Burger Menu */
   .header__burger {
     display: none;
     flex-direction: column;
@@ -369,7 +360,7 @@ import logo from '../assets/logo1.png';
   .header__burger-line {
     width: 100%;
     height: 3px;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 2px;
     transition: all 0.3s ease;
   }
@@ -386,7 +377,6 @@ import logo from '../assets/logo1.png';
     transform: rotate(-45deg) translate(4px, -8px);
   }
 
-  /* Mobile Styles */
   @media screen and (max-width: 1024px) {
     .header__burger {
       display: flex;
@@ -397,7 +387,7 @@ import logo from '../assets/logo1.png';
       top: 100%;
       left: 0;
       right: 0;
-      background-color: #1a73e8;
+      background-color: var(--primary-color);
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
@@ -435,7 +425,7 @@ import logo from '../assets/logo1.png';
 
     .header__submenu {
       position: static;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: var(--primary-color);
       box-shadow: none;
       border-radius: 0;
       margin: 0;
