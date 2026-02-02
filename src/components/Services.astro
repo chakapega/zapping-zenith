@@ -1,0 +1,297 @@
+---
+interface Service {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  link: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  services: Service[];
+}
+
+const { title, subtitle, services } = Astro.props;
+---
+
+<section class='services-section'>
+  <div class='services-section__container'>
+    <div class='services-section__header'>
+      <h2 class='services-section__title'>{title}</h2>
+      <p class='services-section__subtitle'>{subtitle}</p>
+    </div>
+
+    <div class='services-section__tabs'>
+      {
+        services.map((service, index) => (
+          <button
+            class={`services-section__tab ${index === 0 ? "services-section__tab--active" : ""}`}
+            data-service-id={service.id}
+            type='button'>
+            {service.title}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class='services-section__content'>
+      {
+        services.map((service, index) => (
+          <div
+            class={`services-section__service ${index === 0 ? "services-section__service--active" : ""}`}
+            data-service-content={service.id}>
+            <div class='services-section__image'>
+              <img src={service.image} alt={service.title} loading='lazy' />
+            </div>
+            <div class='services-section__text-block'>
+              <div class='services-section__description'>
+                <p>{service.description}</p>
+              </div>
+              <a href={service.link} class='services-section__link'>Подробнее</a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding: 60px 20px;
+    background-color: var(--white);
+  }
+
+  .services-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-section__header {
+    margin-bottom: 40px;
+  }
+
+  .services-section__title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    color: var(--primary-color);
+  }
+
+  .services-section__subtitle {
+    font-size: 16px;
+    color: var(--secondary-color);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .services-section__tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .services-section__tab {
+    flex: 1;
+    padding: 16px 24px;
+    background-color: var(--white);
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+    font-family: inherit;
+    border-right: 1px solid #e0e0e0;
+  }
+
+  .services-section__tab:last-child {
+    border-right: none;
+  }
+
+  .services-section__tab:hover {
+    background-color: var(--hover-white-btn);
+  }
+
+  .services-section__tab--active {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+
+  .services-section__tab--active:hover {
+    background-color: #2980b9;
+  }
+
+  .services-section__content {
+    position: relative;
+    min-height: 400px;
+  }
+
+  .services-section__service {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition:
+      opacity 0.5s ease,
+      visibility 0.5s ease;
+  }
+
+  .services-section__service--active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+  }
+
+  .services-section__image {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .services-section__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .services-section__text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .services-section__description {
+    font-size: 16px;
+    color: var(--secondary-color);
+    line-height: 1.6;
+  }
+
+  .services-section__description p {
+    margin: 0;
+  }
+
+  .services-section__link {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      transform 0.1s ease;
+    font-family: inherit;
+    align-self: flex-start;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .services-section__link:hover {
+    background-color: #2980b9;
+  }
+
+  .services-section__link:active {
+    transform: scale(0.98);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .services-section {
+      padding: 40px 20px;
+    }
+
+    .services-section__title {
+      font-size: 36px;
+    }
+
+    .services-section__service {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .services-section__image {
+      height: 300px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .services-section__title {
+      font-size: 28px;
+    }
+
+    .services-section__tabs {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .services-section__tab {
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .services-section__tab:last-child {
+      border-bottom: none;
+    }
+
+    .services-section__image {
+      height: 250px;
+    }
+
+    .services-section__cta-button {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const initServices = () => {
+    const tabs = document.querySelectorAll(".services-section__tab");
+    const services = document.querySelectorAll(".services-section__service");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const serviceId = tab.getAttribute("data-service-id");
+
+        // Remove active class from all tabs
+        tabs.forEach((t) => t.classList.remove("services-section__tab--active"));
+
+        // Add active class to clicked tab
+        tab.classList.add("services-section__tab--active");
+
+        // Hide all services
+        services.forEach((service) => {
+          service.classList.remove("services-section__service--active");
+        });
+
+        // Show selected service
+        const selectedService = document.querySelector(`[data-service-content="${serviceId}"]`);
+        if (selectedService) {
+          selectedService.classList.add("services-section__service--active");
+        }
+      });
+    });
+  };
+
+  initServices();
+  document.addEventListener("astro:after-swap", initServices);
+</script>
