@@ -2,10 +2,34 @@
 import Layout from "../layouts/Layout.astro";
 import ImageTriple from "../components/ImageTriple.astro";
 import Services from "../components/Services.astro";
-import ProjectsCarousel from "../components/ProjectsCarousel.astro";
+import ImagesCarousel from "../components/ImagesCarousel.astro";
 import Catalog from "../components/Catalog.astro";
 import Partners from "../components/Partners.astro";
 import { rootCatalogItems } from "../data/catalog";
+
+import type { CarouselElement } from "../components/ImagesCarousel.astro";
+
+const projectsImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/projects/*.{jpeg,jpg,png,gif}",
+  {
+    eager: true,
+  }
+);
+const projects: CarouselElement[] = Object.values(projectsImages).map((img) => ({
+  image: img.default,
+  description: "Реализованный проект",
+}));
+
+const equipmentImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/equipment/*.{jpeg,jpg,png,gif}",
+  {
+    eager: true,
+  }
+);
+const equipment: CarouselElement[] = Object.values(equipmentImages).map((img) => ({
+  image: img.default,
+  description: "Наше оборудование",
+}));
 ---
 
 <Layout>
@@ -15,7 +39,17 @@ import { rootCatalogItems } from "../data/catalog";
 
   <Catalog items={rootCatalogItems} />
 
-  <ProjectsCarousel />
+  <ImagesCarousel
+    title='Реализованные проекты'
+    subtitle='Мы гордимся прозрачностью нашей работы и готовы показать реальные результаты'
+    elements={projects}
+  />
+
+  <ImagesCarousel
+    title='Наше оборудование'
+    subtitle='Профессиональное оборудование в руках опытных мастеров'
+    elements={equipment}
+  />
 
   <Partners />
 </Layout>
