@@ -4,6 +4,7 @@ import ImageTriple from "../components/ImageTriple.astro";
 import Services from "../components/Services.astro";
 import ProjectsCarousel from "../components/ProjectsCarousel.astro";
 import Catalog from "../components/Catalog.astro";
+import Partners from "../components/Partners.astro";
 import { rootCatalogItems } from "../data/catalog";
 ---
 
@@ -15,4 +16,6 @@ import { rootCatalogItems } from "../data/catalog";
   <Catalog items={rootCatalogItems} />
 
   <ProjectsCarousel />
+
+  <Partners />
 </Layout>

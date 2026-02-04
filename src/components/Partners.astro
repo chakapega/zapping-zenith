@@ -1,0 +1,102 @@
+---
+import type { ImageMetadata } from "astro";
+import SectionHeader from "./SectionHeader.astro";
+
+interface PartnerLogo {
+  image: ImageMetadata;
+  filename: string;
+}
+
+const logoModules = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/partners/*.{svg,png,jpg,jpeg,webp}",
+  { eager: true },
+);
+
+const partners: PartnerLogo[] = Object.entries(logoModules).map(([path, module]) => {
+  const filename = path.split("/").pop() || "";
+  return {
+    image: module.default,
+    filename: filename,
+  };
+});
+
+partners.sort((a, b) => a.filename.localeCompare(b.filename));
+---
+
+<section class='partners-section'>
+  <SectionHeader title="Наши партнёры" subtitle="Организации которые нам доверяют" />
+
+  <div class='partners-section__logos'>
+    {
+      partners.map((partner) => (
+        <div class='partners-section__logo-wrapper'>
+          <img
+            src={partner.image.src}
+            alt={`Логотип партнера ${partner.filename}`}
+            class='partners-section__logo'
+            loading='lazy'
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .partners-section {
+    padding: 60px 20px;
+    background-color: var(--white);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .partners-section__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .partners-section__logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    max-width: 200px;
+    flex: 0 1 auto;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #b9b9b9 100%);
+    border-radius: 8px;
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .partners-section__logo {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .partners-section {
+      padding: 40px 20px;
+    }
+
+    .partners-section__title {
+      font-size: 32px;
+    }
+
+    .partners-section__logos {
+      gap: 30px;
+    }
+
+    .partners-section__logo-wrapper {
+      height: 60px;
+      max-width: 150px;
+    }
+  }
+</style>

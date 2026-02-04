@@ -18,7 +18,7 @@ const { items, basePath = "/catalog", breadcrumbs = [] } = Astro.props;
 ---
 
 <section class='catalog'>
-  <SectionHeader title="Каталог продукции" subtitle="Надежные металлоконструкции для проектов любой сложности." />
+  <SectionHeader title="Каталог продукции" subtitle="Надежные металлоконструкции для проектов любой сложности" />
 
   {
     breadcrumbs.length > 0 && (
@@ -62,7 +62,7 @@ const { items, basePath = "/catalog", breadcrumbs = [] } = Astro.props;
 <style>
   .catalog {
     max-width: 1200px;
-    margin: 60px auto 40px;
+    margin: 60px auto;
     padding: 0 20px;
   }
 
