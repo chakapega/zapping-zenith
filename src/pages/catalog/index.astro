@@ -1,0 +1,9 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Catalog from "../../components/Catalog.astro";
+import { rootCatalogItems } from "../../data/catalog";
+---
+
+<Layout>
+  <Catalog items={rootCatalogItems} basePath='/catalog' title='Каталог' />
+</Layout>

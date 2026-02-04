@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Catalog from "../../components/Catalog.astro";
+import { rootCatalogItems, findItemBySlugs } from "../../data/catalog";
+
+export function getStaticPaths() {
+  const paths: { params: { slugs: string } }[] = [];
+
+  function walk(items: typeof rootCatalogItems, parentSlugs: string[] = []) {
+    for (const item of items) {
+      const allSlugs = [...parentSlugs, item.slug];
+      const slugsParam = allSlugs.join("/");
+
+      paths.push({ params: { slugs: slugsParam } });
+
+      if (item.products && item.products.length > 0) {
+        walk(item.products as typeof rootCatalogItems, allSlugs);
+      }
+    }
+  }
+
+  walk(rootCatalogItems);
+
+  return paths;
+}
+
+const slugsParam = Astro.params.slugs;
+const slugs: string[] =
+  typeof slugsParam === "string" ? slugsParam.split("/").filter(Boolean) : Array.isArray(slugsParam) ? slugsParam : [];
+
+const currentItem = slugs.length ? findItemBySlugs(slugs) : null;
+const itemsToShow = currentItem ? currentItem.products : rootCatalogItems;
+const pageTitle = currentItem ? currentItem.title : "Каталог";
+const basePath = `/catalog/${slugs.join("/")}`.replace(/\/+$/, "");
+---
+
+<Layout>
+  <Catalog items={itemsToShow} basePath={basePath || "/catalog"} title={pageTitle} />
+</Layout>

@@ -1,0 +1,43 @@
+[
+  {
+    "slug": "efp",
+    "title": "Закладные детали фундамента",
+    "img": "default-catalog-img.png",
+    "products": [
+      {
+        "slug": "ZD-MN-MS",
+        "title": "Закладные детали ЗД, МН, МС",
+        "img": "default-catalog-img.png",
+        "products": [
+          {
+            "slug": "abc1",
+            "title": "Элемент 1",
+            "img": "default-catalog-img.png"
+          }
+        ]
+      },
+      {
+        "slug": "anchor-mortgages",
+        "title": "Анкерные закладные",
+        "img": "default-catalog-img.png"
+      }
+    ]
+  },
+  {
+    "slug": "ventilation-equipment",
+    "title": "Оборудование для вентиляции",
+    "img": "default-catalog-img.png",
+    "products": [
+      {
+        "slug": "abc1",
+        "title": "Элемент 1",
+        "img": "default-catalog-img.png"
+      },
+      {
+        "slug": "abc2",
+        "title": "Элемент 2",
+        "img": "default-catalog-img.png"
+      }
+    ]
+  }
+]

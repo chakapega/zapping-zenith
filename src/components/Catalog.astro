@@ -1,0 +1,75 @@
+---
+import CatalogCard from "./CatalogCard.astro";
+import type { CatalogItem } from "../data/catalog";
+
+export interface Props {
+  items: CatalogItem[];
+  basePath?: string;
+  title?: string;
+}
+
+const { items, basePath = "/catalog", title = "Каталог продукции" } = Astro.props;
+---
+
+<section class='catalog'>
+  <div class='catalog__header'>
+    <h2 class='catalog__title'>
+      {title}
+    </h2>
+  </div>
+
+  <div class='catalog__grid'>
+    {
+      items.map((item) => {
+        const hasChildren = item.products && item.products.length > 0;
+
+        return <CatalogCard item={item} href={hasChildren ? `${import.meta.env.BASE_URL}${basePath}/${item.slug}` : null} />;
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .catalog {
+    max-width: 1200px;
+    margin: 60px auto 40px;
+    padding: 0 20px;
+  }
+
+  .catalog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+
+  .catalog__title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    color: var(--primary-color);
+  }
+
+  .catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .catalog__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .catalog {
+      margin-top: 40px;
+    }
+
+    .catalog__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

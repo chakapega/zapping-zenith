@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import type { CatalogItem } from "../data/catalog";
+
+export interface Props {
+  item: CatalogItem;
+  href: string | null;
+}
+
+const { item, href } = Astro.props;
+---
+
+<article class={`catalog-card ${href ? "catalog-card--clickable" : ""}`}>
+  {
+    href ? (
+      <a href={href} class='catalog-card__link catalog-card__link--clickable'>
+        <div class='catalog-card__image'>
+          <Image src={item.img} alt={item.title} loading='lazy' />
+        </div>
+        <h3 class='catalog-card__title'>{item.title}</h3>
+      </a>
+    ) : (
+      <div class='catalog-card__link'>
+        <div class='catalog-card__image'>
+          <Image src={item.img} alt={item.title} loading='lazy' />
+        </div>
+        <h3 class='catalog-card__title'>{item.title}</h3>
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .catalog-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .catalog-card--clickable:hover {
+    transform: scale(1.01);
+  }
+
+  .catalog-card__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .catalog-card__image :global(img) {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .catalog-card__title {
+    padding: 16px 20px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .catalog-card__link--clickable {
+    cursor: pointer;
+  }
+</style>

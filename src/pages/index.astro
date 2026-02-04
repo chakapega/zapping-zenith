@@ -4,6 +4,8 @@ import ImageTriple from "../components/ImageTriple.astro";
 import Services from "../components/Services.astro";
 import ProjectsCarousel from "../components/ProjectsCarousel.astro";
 import Map from "../components/Map.astro";
+import Catalog from "../components/Catalog.astro";
+import { rootCatalogItems } from "../data/catalog";
 
 import img1 from "../assets/image_triple_1.jpg";
 import img2 from "../assets/image_triple_2.jpg";
@@ -83,6 +85,7 @@ const projects = [
 
 <Layout>
   <ImageTriple images={myImages} />
+  <Catalog items={rootCatalogItems} />
   <Services
     title='Наши услуги'
     subtitle='Комплексный подход к работе с металлом: от чертежа до готового объекта'

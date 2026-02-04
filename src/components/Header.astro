@@ -6,7 +6,7 @@ import logo from '../assets/logo1.png';
 <header class='header'>
   <div class='header__container'>
     <div class='header__logo'>
-      <a href='/'>
+      <a href={`${import.meta.env.BASE_URL}/`}>
         <img src={logo.src} alt='Лого'>
         <span>СтальТехСервис</span>
       </a>
@@ -43,24 +43,24 @@ import logo from '../assets/logo1.png';
           </button>
           <ul class='header__submenu' aria-labelledby='services-button'>
             <li class='header__submenu-item'>
-              <a href='/services/manufacturing' class='header__submenu-link'>Изготовление</a>
+              <a href={`${import.meta.env.BASE_URL}/services/manufacturing`} class='header__submenu-link'>Изготовление</a>
             </li>
             <li class='header__submenu-item'>
-              <a href='/services/installation' class='header__submenu-link'>Монтаж</a>
+              <a href={`${import.meta.env.BASE_URL}/services/installation`} class='header__submenu-link'>Монтаж</a>
             </li>
             <li class='header__submenu-item'>
-              <a href='/services/design' class='header__submenu-link'>Проектирование</a>
+              <a href={`${import.meta.env.BASE_URL}/services/design`} class='header__submenu-link'>Проектирование</a>
             </li>
             <li class='header__submenu-item'>
-              <a href='/services/rent' class='header__submenu-link'>Аренда</a>
+              <a href={`${import.meta.env.BASE_URL}/services/rent`} class='header__submenu-link'>Аренда</a>
             </li>
           </ul>
         </li>
         <li class='header__menu-item'>
-          <a href='/projects' class='header__menu-link'>Реализованные проекты</a>
+          <a href={`${import.meta.env.BASE_URL}/projects`} class='header__menu-link'>Реализованные проекты</a>
         </li>
         <li class='header__menu-item'>
-          <a href='/about' class='header__menu-link'>О нас</a>
+          <a href={`${import.meta.env.BASE_URL}/about`} class='header__menu-link'>О нас</a>
         </li>
       </ul>
     </nav>
