@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import ImageTriple from "../components/ImageTriple.astro";
 import Services from "../components/Services.astro";
 import ProjectsCarousel from "../components/ProjectsCarousel.astro";
-import Map from "../components/Map.astro";
 import Catalog from "../components/Catalog.astro";
 import { rootCatalogItems } from "../data/catalog";
 ---
@@ -16,6 +15,4 @@ import { rootCatalogItems } from "../data/catalog";
   <Catalog items={rootCatalogItems} />
 
   <ProjectsCarousel />
-  
-  <Map />
 </Layout>
