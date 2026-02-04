@@ -1,4 +1,6 @@
 ---
+import SectionHeader from "./SectionHeader.astro";
+
 interface Project {
   image: string;
   description: string;
@@ -14,12 +16,10 @@ const { projects } = Astro.props;
 <section class='projects-section'>
   <div class='projects-section__header'>
     <div class='projects-section__title-wrapper'>
-      <h2 class='projects-section__title'>
-        Реализованные проекты
-      </h2>
-      <p class='projects-section__subtitle'>
-        Мы гордимся прозрачностью нашей работы и готовы показать реальные результаты.
-      </p>
+      <SectionHeader
+        title='Реализованные проекты'
+        subtitle='Мы гордимся прозрачностью нашей работы и готовы показать реальные результаты.'
+      />
     </div>
     <div class='projects-section__controls'>
       <button
@@ -92,24 +92,6 @@ const { projects } = Astro.props;
 
   .projects-section__title-wrapper {
     flex: 1;
-  }
-
-  .projects-section__title {
-    font-size: 42px;
-    font-weight: 700;
-    margin: 0 0 16px 0;
-    line-height: 1.2;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    color: var(--primary-color);
-  }
-
-  .projects-section__subtitle {
-    font-size: 16px;
-    color: var(--secondary-color);
-    margin: 0;
-    line-height: 1.5;
   }
 
   .projects-section__controls {

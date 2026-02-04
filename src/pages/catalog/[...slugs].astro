@@ -30,10 +30,21 @@ const slugs: string[] =
 
 const currentItem = slugs.length ? findItemBySlugs(slugs) : null;
 const itemsToShow = currentItem ? currentItem.products : rootCatalogItems;
-const pageTitle = currentItem ? currentItem.title : "Каталог";
 const basePath = `/catalog/${slugs.join("/")}`.replace(/\/+$/, "");
+
+const breadcrumbs: { title: string; href?: string }[] = [{ title: "Каталог", href: "/catalog" }];
+for (let i = 0; i < slugs.length; i++) {
+  const item = findItemBySlugs(slugs.slice(0, i + 1));
+  if (item) {
+    const isLast = i === slugs.length - 1;
+    breadcrumbs.push({
+      title: item.title,
+      href: isLast ? undefined : `/catalog/${slugs.slice(0, i + 1).join("/")}`,
+    });
+  }
+}
 ---
 
 <Layout>
-  <Catalog items={itemsToShow} basePath={basePath || "/catalog"} title={pageTitle} />
+  <Catalog items={itemsToShow} basePath={basePath || "/catalog"} breadcrumbs={breadcrumbs} />
 </Layout>

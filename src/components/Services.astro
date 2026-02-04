@@ -1,4 +1,6 @@
 ---
+import SectionHeader from './SectionHeader.astro';
+
 interface Service {
   id: string;
   title: string;
@@ -18,10 +20,7 @@ const { title, subtitle, services } = Astro.props;
 
 <section class='services-section'>
   <div class='services-section__container'>
-    <div class='services-section__header'>
-      <h2 class='services-section__title'>{title}</h2>
-      <p class='services-section__subtitle'>{subtitle}</p>
-    </div>
+    <SectionHeader title={title} subtitle={subtitle} />
 
     <div class='services-section__tabs'>
       {
@@ -67,25 +66,6 @@ const { title, subtitle, services } = Astro.props;
   .services-section__container {
     max-width: 1200px;
     margin: 0 auto;
-  }
-
-  .services-section__header {
-    margin-bottom: 40px;
-  }
-
-  .services-section__title {
-    font-size: 42px;
-    font-weight: 700;
-    margin: 0 0 16px 0;
-    line-height: 1.2;
-    color: var(--primary-color);
-  }
-
-  .services-section__subtitle {
-    font-size: 16px;
-    color: var(--secondary-color);
-    margin: 0;
-    line-height: 1.5;
   }
 
   .services-section__tabs {

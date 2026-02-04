@@ -85,12 +85,15 @@ const projects = [
 
 <Layout>
   <ImageTriple images={myImages} />
-  <Catalog items={rootCatalogItems} />
   <Services
     title='Наши услуги'
     subtitle='Комплексный подход к работе с металлом: от чертежа до готового объекта'
     services={services}
   />
+
+  <Catalog items={rootCatalogItems} />
+
   <ProjectsCarousel projects={projects} />
+  
   <Map />
 </Layout>
