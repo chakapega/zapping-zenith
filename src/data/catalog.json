@@ -39,5 +39,73 @@
         "img": "default-catalog-img.png"
       }
     ]
+  },
+  {
+    "slug": "fmc",
+    "title": "Фасадные металлокассеты",
+    "img": "default-catalog-img.png",
+    "products": [
+      {
+        "slug": "abc1",
+        "title": "Элемент 1",
+        "img": "default-catalog-img.png"
+      },
+      {
+        "slug": "abc2",
+        "title": "Элемент 2",
+        "img": "default-catalog-img.png"
+      }
+    ]
+  },
+  {
+    "slug": "mrt",
+    "title": "Металлочерепица",
+    "img": "default-catalog-img.png",
+    "products": [
+      {
+        "slug": "abc1",
+        "title": "Элемент 1",
+        "img": "default-catalog-img.png"
+      },
+      {
+        "slug": "abc2",
+        "title": "Элемент 2",
+        "img": "default-catalog-img.png"
+      }
+    ]
+  },
+  {
+    "slug": "mrt",
+    "title": "Забор металлический",
+    "img": "default-catalog-img.png",
+    "products": [
+      {
+        "slug": "abc1",
+        "title": "Элемент 1",
+        "img": "default-catalog-img.png"
+      },
+      {
+        "slug": "abc2",
+        "title": "Элемент 2",
+        "img": "default-catalog-img.png"
+      }
+    ]
+  },
+  {
+    "slug": "maf",
+    "title": "МАФ",
+    "img": "default-catalog-img.png",
+    "products": [
+      {
+        "slug": "abc1",
+        "title": "Элемент 1",
+        "img": "default-catalog-img.png"
+      },
+      {
+        "slug": "abc2",
+        "title": "Элемент 2",
+        "img": "default-catalog-img.png"
+      }
+    ]
   }
 ]
