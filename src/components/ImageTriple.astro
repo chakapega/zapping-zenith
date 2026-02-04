@@ -1,15 +1,15 @@
 ---
-interface Props {
-  images: string[];
-}
+import img1 from '../assets/images/image_triple_1.jpg';
+import img2 from '../assets/images/image_triple_2.jpg';
+import img3 from '../assets/images/image_triple_3.jpg';
 
-const { images } = Astro.props;
+const images = [img1, img2, img3];
 ---
 
 <div class="fade-container" id="fade-slider">
-  {images.slice(0, 3).map((src, index) => (
+  {images.slice(0, 3).map((image, index) => (
     <div class={`fade-slide ${index === 0 ? 'active' : ''}`}>
-      <img src={src} alt={`Background ${index + 1}`} />
+      <img src={image.src} alt={`Background ${index + 1}`} />
     </div>
   ))}
 </div>

@@ -6,94 +6,16 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
 import Map from "../components/Map.astro";
 import Catalog from "../components/Catalog.astro";
 import { rootCatalogItems } from "../data/catalog";
-
-import img1 from "../assets/image_triple_1.jpg";
-import img2 from "../assets/image_triple_2.jpg";
-import img3 from "../assets/image_triple_3.jpg";
-
-import projectImage1 from "../assets/project1.jpg";
-import projectImage2 from "../assets/project2.jpg";
-
-const myImages = [img1.src, img2.src, img3.src];
-
-const services = [
-  {
-    id: "manufacturing",
-    title: "Изготовление",
-    image: projectImage1.src,
-    description:
-      "Производим металлоизделия любой сложности: от стандартных элементов опалубки до уникальных закладных деталей. Собственный станочный парк и строгий контроль ОТК позволяют нам гарантировать идеальную геометрию и долговечность каждого изделия. Работаем с вашими чертежами или разрабатываем решения с нуля.",
-    link: "/services/manufacturing",
-  },
-  {
-    id: "installation",
-    title: "Монтаж",
-    image: projectImage2.src,
-    description:
-      "Профессиональная сборка и установка металлоконструкций на объекте. Наши бригады оснащены всем необходимым оборудованием для быстрого и безопасного монтажа. Гарантируем соблюдение СНиП и проектных сроков, чтобы ваш объект был готов к эксплуатации вовремя.",
-    link: "/services/installation",
-  },
-  {
-    id: "design",
-    title: "Проектирование",
-    image: projectImage1.src,
-    description:
-      "Разрабатываем детальную КМ и КМД документацию с учетом всех нагрузок и специфики эксплуатации. Инженерный отдел оптимизирует металлоемкость конструкций, что позволяет снизить ваши затраты без потери прочности. Создаем проекты, которые легко проходят экспертизу.",
-    link: "/services/design",
-  },
-  {
-    id: "rental",
-    title: "Аренда",
-    image: projectImage2.src,
-    description:
-      "Широкий парк строительной опалубки и вспомогательного оборудования в идеальном техническом состоянии. Гибкие сроки аренды и оперативная доставка на объект позволяют вам избежать крупных вложений в покупку собственного снаряжения. Обеспечиваем полное инженерное сопровождение и расчет необходимого комплекта.",
-    link: "/services/rental",
-  },
-];
-
-const projects = [
-  {
-    image: projectImage1.src,
-    description: "Национальная библиотека Беларуси",
-  },
-  {
-    image: projectImage2.src,
-    description: "Белорусская атомная электростанция",
-  },
-  {
-    image: projectImage1.src,
-    description: "Национальная библиотека Беларуси",
-  },
-  {
-    image: projectImage2.src,
-    description: "Белорусская атомная электростанция",
-  },
-  {
-    image: projectImage1.src,
-    description: "Национальная библиотека Беларуси",
-  },
-  {
-    image: projectImage2.src,
-    description: "Белорусская атомная электростанция",
-  },
-  {
-    image: projectImage1.src,
-    description: "Национальная библиотека Беларуси",
-  },
-];
 ---
 
 <Layout>
-  <ImageTriple images={myImages} />
-  <Services
-    title='Наши услуги'
-    subtitle='Комплексный подход к работе с металлом: от чертежа до готового объекта'
-    services={services}
-  />
+  <ImageTriple />
+
+  <Services />
 
   <Catalog items={rootCatalogItems} />
 
-  <ProjectsCarousel projects={projects} />
+  <ProjectsCarousel />
   
   <Map />
 </Layout>

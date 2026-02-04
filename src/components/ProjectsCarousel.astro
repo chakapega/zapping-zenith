@@ -1,16 +1,21 @@
 ---
+import type { ImageMetadata } from "astro";
+
 import SectionHeader from "./SectionHeader.astro";
 
 interface Project {
-  image: string;
+  image: ImageMetadata;
   description: string;
 }
 
-interface Props {
-  projects: Project[];
-}
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/projects/*.{jpeg,jpg,png,gif}", {
+  eager: true,
+});
 
-const { projects } = Astro.props;
+const projects: Project[] = Object.values(images).map((img) => ({
+  image: img.default,
+  description: "Фото реализованного объекта",
+}));
 ---
 
 <section class='projects-section'>
@@ -63,10 +68,7 @@ const { projects } = Astro.props;
         projects.map((project) => (
           <div class='projects-section__card'>
             <div class='projects-section__card-image'>
-              <img src={project.image} alt={project.description} loading='lazy' />
-            </div>
-            <div class='projects-section__card-content'>
-              <p class='projects-section__card-text'>{project.description}</p>
+              <img src={project.image.src} alt={project.description} loading='lazy' />
             </div>
           </div>
         ))
@@ -159,7 +161,7 @@ const { projects } = Astro.props;
     background-color: var(--white);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition:
       box-shadow 0.3s ease,
       transform 0.2s ease;
@@ -192,18 +194,6 @@ const { projects } = Astro.props;
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-
-  .projects-section__card-content {
-    padding: 20px;
-    flex: 1;
-  }
-
-  .projects-section__card-text {
-    font-size: 16px;
-    color: var(--secondary-color);
-    line-height: 1.5;
-    margin: 0;
   }
 
   @media screen and (max-width: 1024px) {
