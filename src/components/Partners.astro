@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import SectionHeader from "./SectionHeader.astro";
 
@@ -30,8 +31,8 @@ partners.sort((a, b) => a.filename.localeCompare(b.filename));
     {
       partners.map((partner) => (
         <div class='partners-section__logo-wrapper'>
-          <img
-            src={partner.image.src}
+          <Image
+            src={partner.image}
             alt={`Логотип партнера ${partner.filename}`}
             class='partners-section__logo'
             loading='lazy'
