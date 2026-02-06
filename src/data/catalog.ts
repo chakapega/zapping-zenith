@@ -16,11 +16,28 @@ export type CatalogItem = {
 };
 
 const imageModules = import.meta.glob<{ default: ImageMetadata }>(
-  '../assets/images/catalog/*.{png,jpg,jpeg,webp,gif}',
+  '../assets/images/catalog/**/*.{png,jpg,jpeg,webp,gif}',
   { eager: true },
 );
 
 const imageMap: Record<string, ImageMetadata> = {};
+
+for (const path in imageModules) {
+  const meta = imageModules[path].default;
+  const filename = path.split('/').pop() ?? '';
+  const withoutExt = filename.replace(/\.[^.]+$/, '');
+
+  if (filename) {
+    imageMap[filename] = meta;
+    imageMap[withoutExt] = meta;
+    
+    const relativePath = path.split('/assets/images/catalog/')[1];
+    if (relativePath) {
+      imageMap[relativePath] = meta;
+    }
+  }
+}
+
 
 for (const path in imageModules) {
   const meta = imageModules[path].default;
