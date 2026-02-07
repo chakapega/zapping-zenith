@@ -841,19 +841,39 @@
     ]
   },
   {
-    "slug": "mrt",
+    "slug": "metallocherepitsa",
     "title": "Металлочерепица",
-    "img": "default-catalog-img.png",
+    "img": "mch.jpg",
     "products": [
       {
-        "slug": "abc1",
-        "title": "Элемент 1",
-        "img": "default-catalog-img.png"
+        "slug": "lamonterra",
+        "title": "Ламонтерра",
+        "img": "Lamonterra.jpg"
       },
       {
-        "slug": "abc2",
-        "title": "Элемент 2",
-        "img": "default-catalog-img.png"
+        "slug": "lamonterra-x",
+        "title": "Ламонтерра X",
+        "img": "Lamonterra.jpg"
+      },
+      {
+        "slug": "lamonterra-xl",
+        "title": "Ламонтерра XL",
+        "img": "Lamonterra.jpg"
+      },
+      {
+        "slug": "montekristo",
+        "title": "Монтекристо",
+        "img": "Monterrosa.jpg"
+      },
+      {
+        "slug": "monterrosa",
+        "title": "Монтерроса",
+        "img": "Monterrosa-_1_.jpg"
+      },
+      {
+        "slug": "tramontana",
+        "title": "Трамонтана",
+        "img": "Tramontana.jpg"
       }
     ]
   },
