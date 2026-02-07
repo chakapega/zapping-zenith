@@ -291,19 +291,167 @@
     ]
   },
   {
-    "slug": "ventilation-equipment",
-    "title": "Оборудование для вентиляции",
+    "slug": "vozduhovody",
+    "title": "Воздуховоды оцинкованные",
     "img": "default-catalog-img.png",
     "products": [
       {
-        "slug": "abc1",
-        "title": "Элемент 1",
-        "img": "default-catalog-img.png"
-      },
-      {
-        "slug": "abc2",
-        "title": "Элемент 2",
-        "img": "default-catalog-img.png"
+        "slug": "gibkie-vozduhovody",
+        "title": "Гибкие воздуховоды",
+        "img": "default-catalog-img.png",
+        "products": [
+          {
+            "slug": "gibkie-vozduhovody-neizolirovannye",
+            "title": "Гибкие воздуховоды неизолированные",
+            "img": "default-catalog-img.png",
+            "products": [
+              {
+                "slug": "gibkiy-vozduhovod-102-mm-10-metrov-neizolirovannyy-pm",
+                "title": "Гибкий воздуховод 102 мм / 10 метров, неизолированный ПМ",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-102-mm-10-metrov-neizolirovannyy-fa",
+                "title": "Гибкий воздуховод 102 мм / 10 метров, неизолированный ФА",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-127-mm-10-metrov-neizolirovannyy-pm",
+                "title": "Гибкий воздуховод 127 мм / 10 метров, неизолированный ПМ",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-127-mm-10-metrov-neizolirovannyy-fa",
+                "title": "Гибкий воздуховод 127 мм / 10 метров, неизолированный ФА",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-160-mm-10-metrov-neizolirovannyy-pm",
+                "title": "Гибкий воздуховод 160 мм / 10 метров, неизолированный ПМ",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-160-mm-10-metrov-neizolirovannyy-fa",
+                "title": "Гибкий воздуховод 160 мм / 10 метров, неизолированный ФА",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-203-mm-10-metrov-neizolirovannyy-pm",
+                "title": "Гибкий воздуховод 203 мм / 10 метров, неизолированный ПМ",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-203-mm-10-metrov-neizolirovannyy-fa",
+                "title": "Гибкий воздуховод 203 мм / 10 метров, неизолированный ФА",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-254-mm-10-metrov-neizolirovannyy-pm",
+                "title": "Гибкий воздуховод 254 мм / 10 метров, неизолированный ПМ",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-254-mm-10-metrov-neizolirovannyy-fa",
+                "title": "Гибкий воздуховод 254 мм / 10 метров, неизолированный ФА",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-315-mm-10-metrov-neizolirovannyy-pm",
+                "title": "Гибкий воздуховод 315 мм / 10 метров, неизолированный ПМ",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-315-mm-10-metrov-neizolirovannyy-fa",
+                "title": "Гибкий воздуховод 315 мм / 10 метров, неизолированный ФА",
+                "img": "default-catalog-img.png"
+              }
+            ]
+          },
+          {
+            "slug": "vozduhovod-sono",
+            "title": "Гибкие воздуховоды теплозвукоизолированные",
+            "img": "default-catalog-img.png",
+            "products": [
+              {
+                "slug": "vozduhovod-sono-102",
+                "title": "Воздуховод SONO 102",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "vozduhovod-sono-127",
+                "title": "Воздуховод SONO 127",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "vozduhovod-sono-160",
+                "title": "Воздуховод SONO 160",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "vozduhovod-sono-203",
+                "title": "Воздуховод SONO 203",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "vozduhovod-sono-254",
+                "title": "Воздуховод SONO 254",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "vozduhovod-sono-315",
+                "title": "Воздуховод SONO 315",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "vozduhovod-sono-356",
+                "title": "Воздуховод SONO 356",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "vozduhovod-sono-406",
+                "title": "Воздуховод SONO 406",
+                "img": "default-catalog-img.png"
+              }
+            ]
+          },
+          {
+            "slug": "gibkie-vozduhovody-teploizolirovannye",
+            "title": "Гибкие воздуховоды теплоизолированные",
+            "img": "default-catalog-img.png",
+            "products": [
+              {
+                "slug": "gibkiy-vozduhovod-160-mm-10-metrov-teploizolirovannyy",
+                "title": "Гибкий воздуховод 160 мм / 10 метров, теплоизолированный",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-203-mm-10-metrov-teploizolirovannyy",
+                "title": "Гибкий воздуховод 203 мм / 10 метров, теплоизолированный",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-254-mm-10-metrov-teploizolirovannyy",
+                "title": "Гибкий воздуховод 254 мм / 10 метров, теплоизолированный",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-315-mm-10-metrov-teploizolirovannyy",
+                "title": "Гибкий воздуховод 315 мм / 10 метров, теплоизолированный",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-102-mm-10-metrov-teploizolirovannyy",
+                "title": "Гибкий воздуховод 102 мм / 10 метров, теплоизолированный",
+                "img": "default-catalog-img.png"
+              },
+              {
+                "slug": "gibkiy-vozduhovod-127-mm-10-metrov-teploizolirovannyy",
+                "title": "Гибкий воздуховод 127 мм / 10 метров, теплоизолированный",
+                "img": "default-catalog-img.png"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
