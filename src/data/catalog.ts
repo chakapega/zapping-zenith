@@ -1,5 +1,11 @@
 import type { ImageMetadata } from 'astro';
-import rawCatalog from './catalog.json';
+
+import zakladnye_detali from './catalog/zakladnye_detali.json';
+import vozduhovody from './catalog/vozduhovody.json';
+import fmc from './catalog/fmc.json';
+import metallocherepitsa from './catalog/metallocherepitsa.json';
+import mrt from './catalog/mrt.json';
+import maf from './catalog/maf.json';
 
 type RawCatalogItem = {
   slug: string;
@@ -14,6 +20,15 @@ export type CatalogItem = {
   img: ImageMetadata;
   products: CatalogItem[];
 };
+
+const rawCatalog: RawCatalogItem[] = [
+  zakladnye_detali,
+  vozduhovody,
+  fmc,
+  metallocherepitsa,
+  mrt,
+  maf
+]
 
 const imageModules = import.meta.glob<{ default: ImageMetadata }>(
   '../assets/images/catalog/**/*.{png,jpg,jpeg,webp,gif}',
@@ -38,18 +53,6 @@ for (const path in imageModules) {
   }
 }
 
-
-for (const path in imageModules) {
-  const meta = imageModules[path].default;
-  const filename = path.split('/').pop() ?? '';
-  const withoutExt = filename.replace(/\.[^.]+$/, '');
-
-  if (filename) {
-    imageMap[filename] = meta;
-    imageMap[withoutExt] = meta;
-  }
-}
-
 function mapItem(raw: RawCatalogItem): CatalogItem {
   return {
     slug: raw.slug,
@@ -60,9 +63,7 @@ function mapItem(raw: RawCatalogItem): CatalogItem {
   };
 }
 
-const rawData = rawCatalog as RawCatalogItem[];
-
-export const rootCatalogItems: CatalogItem[] = rawData.map(mapItem);
+export const rootCatalogItems: CatalogItem[] = rawCatalog.map(mapItem);
 
 export function findItemBySlugs(slugs: string[]): CatalogItem | null {
   if (!slugs.length) return null;

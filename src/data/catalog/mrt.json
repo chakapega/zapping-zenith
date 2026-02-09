@@ -1,0 +1,17 @@
+{
+  "slug": "mrt",
+  "title": "Забор металлический",
+  "img": "default-catalog-img.png",
+  "products": [
+    {
+      "slug": "abc1",
+      "title": "Элемент 1",
+      "img": "default-catalog-img.png"
+    },
+    {
+      "slug": "abc2",
+      "title": "Элемент 2",
+      "img": "default-catalog-img.png"
+    }
+  ]
+}

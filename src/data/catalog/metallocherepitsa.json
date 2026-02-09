@@ -1,0 +1,37 @@
+{
+  "slug": "metallocherepitsa",
+  "title": "Металлочерепица",
+  "img": "mch.jpg",
+  "products": [
+    {
+      "slug": "lamonterra",
+      "title": "Ламонтерра",
+      "img": "Lamonterra.jpg"
+    },
+    {
+      "slug": "lamonterra-x",
+      "title": "Ламонтерра X",
+      "img": "Lamonterra.jpg"
+    },
+    {
+      "slug": "lamonterra-xl",
+      "title": "Ламонтерра XL",
+      "img": "Lamonterra.jpg"
+    },
+    {
+      "slug": "montekristo",
+      "title": "Монтекристо",
+      "img": "Monterrosa.jpg"
+    },
+    {
+      "slug": "monterrosa",
+      "title": "Монтерроса",
+      "img": "Monterrosa-_1_.jpg"
+    },
+    {
+      "slug": "tramontana",
+      "title": "Трамонтана",
+      "img": "Tramontana.jpg"
+    }
+  ]
+}
