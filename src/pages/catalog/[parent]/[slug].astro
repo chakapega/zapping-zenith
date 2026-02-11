@@ -1,5 +1,5 @@
 ---
-import ProductPageLayout from "../../../layouts/ProductPageLayout.astro";
+import Layout from "../../../layouts/Layout.astro";
 import { getEntry } from "astro:content";
 import catalogData from "../../../data/catalog/vozduhovody.json";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
@@ -28,7 +28,7 @@ const breadcrumbs = [
 ];
 ---
 
-<ProductPageLayout>
+<Layout>
   <section class='content-wrapper'>
     <SectionHeader title='Каталог продукции' subtitle='Надежные металлоконструкции для проектов любой сложности' />
 
@@ -36,7 +36,7 @@ const breadcrumbs = [
 
     {Content ? <Content /> : <p>Описание скоро появится...</p>}
   </section>
-</ProductPageLayout>
+</Layout>
 
 <style is:global>
   .content-wrapper {
