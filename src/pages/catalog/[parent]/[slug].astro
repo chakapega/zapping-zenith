@@ -2,6 +2,8 @@
 import ProductPageLayout from "../../../layouts/ProductPageLayout.astro";
 import { getEntry } from "astro:content";
 import catalogData from "../../../data/catalog/vozduhovody.json";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import SectionHeader from "../../../components/SectionHeader.astro";
 
 export async function getStaticPaths() {
   return catalogData.products.map((product) => ({
@@ -13,25 +15,33 @@ export async function getStaticPaths() {
   }));
 }
 
-const { slug } = Astro.params;
+const { parent, slug } = Astro.params;
 const { product } = Astro.props;
 
 const entry = await getEntry("products", slug);
 const { Content } = entry ? await entry.render() : { Content: null };
+
+const breadcrumbs = [
+  { title: "Каталог", href: "/catalog" },
+  { title: catalogData.title, href: `/catalog/${parent}` },
+  { title: product.title },
+];
 ---
 
 <ProductPageLayout>
   <section class='content-wrapper'>
-    <h1>{product.title}</h1>
+    <SectionHeader title='Каталог продукции' subtitle='Надежные металлоконструкции для проектов любой сложности' />
+
+    <Breadcrumbs items={breadcrumbs} />
+
     {Content ? <Content /> : <p>Описание скоро появится...</p>}
   </section>
 </ProductPageLayout>
 
-
 <style is:global>
   .content-wrapper {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 60px auto;
     color: var(--secondary-color);
   }
 
@@ -41,6 +51,6 @@ const { Content } = entry ? await entry.render() : { Content: null };
   }
 
   h1 {
-    color: var(--primary-color)
+    color: var(--primary-color);
   }
 </style>
