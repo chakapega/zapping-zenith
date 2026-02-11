@@ -1,16 +1,21 @@
 {
-  "slug": "mrt",
+  "slug": "zabor-metallicheskiy",
   "title": "Забор металлический",
   "img": "default-catalog-img.png",
   "products": [
     {
-      "slug": "abc1",
-      "title": "Элемент 1",
+      "slug": "profilirovannyy-list",
+      "title": "Профилированный лист",
       "img": "default-catalog-img.png"
     },
     {
-      "slug": "abc2",
-      "title": "Элемент 2",
+      "slug": "shtaketnik-metallicheskiy",
+      "title": "Штакетник металлический",
+      "img": "default-catalog-img.png"
+    },
+    {
+      "slug": "shtaketnik-metallicheskiy",
+      "title": "Штакетник металлический",
       "img": "default-catalog-img.png"
     }
   ]

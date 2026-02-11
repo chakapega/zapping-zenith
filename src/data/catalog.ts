@@ -27,9 +27,9 @@ const rawCatalog: RawCatalogItem[] = [
   zakladnye_detali,
   vozduhovody,
   fasadnye_metallokassety,
-  metallocherepitsa,
+  // metallocherepitsa,
   mrt,
-  maf
+  // maf
 ]
 
 const imageModules = import.meta.glob<{ default: ImageMetadata }>(
