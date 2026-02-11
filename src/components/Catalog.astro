@@ -18,7 +18,7 @@ const { items, basePath = "/catalog", breadcrumbs = [] } = Astro.props;
 ---
 
 <section class='catalog'>
-  <SectionHeader title="Каталог продукции" subtitle="Надежные металлоконструкции для проектов любой сложности" />
+  <SectionHeader title='Каталог продукции' subtitle='Надежные металлоконструкции для проектов любой сложности' />
 
   {
     breadcrumbs.length > 0 && (
@@ -50,9 +50,13 @@ const { items, basePath = "/catalog", breadcrumbs = [] } = Astro.props;
     {
       items.map((item) => {
         const hasChildren = item.products && item.products.length > 0;
+        const hasContent = item.hasContent;
 
         return (
-          <CatalogCard item={item} href={hasChildren ? `${import.meta.env.BASE_URL}${basePath}/${item.slug}` : null} />
+          <CatalogCard
+            item={item}
+            href={hasChildren || hasContent ? `${import.meta.env.BASE_URL}${basePath}/${item.slug}` : null}
+          />
         );
       })
     }

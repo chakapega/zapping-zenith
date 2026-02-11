@@ -12,13 +12,15 @@ type RawCatalogItem = {
   title: string;
   img: string;
   products?: RawCatalogItem[];
+  hasContent?: boolean;
 };
 
 export type CatalogItem = {
   slug: string;
   title: string;
   img: ImageMetadata;
-  products: CatalogItem[];
+  products?: CatalogItem[];
+  hasContent?: boolean;
 };
 
 const rawCatalog: RawCatalogItem[] = [
@@ -60,6 +62,7 @@ function mapItem(raw: RawCatalogItem): CatalogItem {
     // В JSON можно указывать либо "project1", либо "project1.jpg"
     img: imageMap[raw.img],
     products: (raw.products ?? []).map(mapItem),
+    hasContent: raw.hasContent
   };
 }
 

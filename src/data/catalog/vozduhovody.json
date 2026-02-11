@@ -6,17 +6,20 @@
     {
       "slug": "kruglyj_vozduhovod",
       "title": "Круглый воздуховод",
-      "img": "kruglyj_vozduhovod.jpg"
+      "img": "kruglyj_vozduhovod.jpg",
+      "hasContent": true
     },
     {
       "slug": "pryamougolnyj_vozduhovod",
       "title": "Прямоугольный воздуховод",
-      "img": "pryamougolnyj_vozduhovod_ocinkovka.jpg"
+      "img": "pryamougolnyj_vozduhovod_ocinkovka.jpg",
+      "hasContent": true
     },
     {
       "slug": "pl_vzd",
       "title": "Плоскоовальный воздуховод",
-      "img": "pl_vzd.jpg"
+      "img": "pl_vzd.jpg",
+      "hasContent": true
     }
   ]
 }
