@@ -2,7 +2,7 @@ import type { ImageMetadata } from 'astro';
 
 import zakladnye_detali from './catalog/zakladnye_detali.json';
 import vozduhovody from './catalog/vozduhovody.json';
-import fmc from './catalog/fmc.json';
+import fasadnye_metallokassety from './catalog/fasadnye_metallokassety.json';
 import metallocherepitsa from './catalog/metallocherepitsa.json';
 import mrt from './catalog/mrt.json';
 import maf from './catalog/maf.json';
@@ -26,7 +26,7 @@ export type CatalogItem = {
 const rawCatalog: RawCatalogItem[] = [
   zakladnye_detali,
   vozduhovody,
-  fmc,
+  fasadnye_metallokassety,
   metallocherepitsa,
   mrt,
   maf

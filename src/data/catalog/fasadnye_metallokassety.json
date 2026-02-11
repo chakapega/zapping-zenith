@@ -1,0 +1,19 @@
+{
+  "slug": "fasadnye_metallokassety",
+  "title": "Фасадные металлокассеты",
+  "img": "facade-closed-lock.jpg",
+  "products": [
+    {
+      "slug": "fasadnye_metallokassety-closed-lock",
+      "title": "Закрытого типа",
+      "img": "facade-closed-lock.jpg",
+      "hasContent": true
+    },
+    {
+      "slug": "fasadnye_metallokassety-open-lock",
+      "title": "Открытого типа",
+      "img": "facade-open-lock.jpg",
+      "hasContent": true
+    }
+  ]
+}

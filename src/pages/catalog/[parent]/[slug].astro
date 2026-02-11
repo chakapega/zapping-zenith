@@ -1,22 +1,26 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import { getEntry } from "astro:content";
-import catalogData from "../../../data/catalog/vozduhovody.json";
+import vozduhovody from "../../../data/catalog/vozduhovody.json";
+import fasadnye_metallokassety from "../../../data/catalog/fasadnye_metallokassety.json";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import SectionHeader from "../../../components/SectionHeader.astro";
 
 export async function getStaticPaths() {
-  return catalogData.products.map((product) => ({
-    params: {
-      parent: catalogData.slug,
-      slug: product.slug,
-    },
-    props: { product },
-  }));
+  const catalogSources = [vozduhovody, fasadnye_metallokassety];
+  return catalogSources.flatMap((catalogData) =>
+    catalogData.products.map((product) => ({
+      params: {
+        parent: catalogData.slug,
+        slug: product.slug,
+      },
+      props: { product, catalogData },
+    }))
+  );
 }
 
 const { parent, slug } = Astro.params;
-const { product } = Astro.props;
+const { product, catalogData } = Astro.props;
 
 const entry = await getEntry("products", slug);
 const { Content } = entry ? await entry.render() : { Content: null };

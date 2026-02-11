@@ -29,7 +29,7 @@ const slugs: string[] =
   typeof slugsParam === "string" ? slugsParam.split("/").filter(Boolean) : Array.isArray(slugsParam) ? slugsParam : [];
 
 const currentItem = slugs.length ? findItemBySlugs(slugs) : null;
-const itemsToShow = currentItem ? currentItem.products : rootCatalogItems;
+const itemsToShow = currentItem && currentItem.products ? currentItem.products : rootCatalogItems;
 const basePath = `/catalog/${slugs.join("/")}`.replace(/\/+$/, "");
 
 const breadcrumbs: { title: string; href?: string }[] = [{ title: "Каталог", href: "/catalog" }];
