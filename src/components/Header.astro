@@ -1,13 +1,13 @@
 ---
 import CallbackPopup from "./CallbackPopup.astro";
-import logo from '../assets/images/logo1.png';
+import logo from "../assets/images/logo1.png";
 ---
 
 <header class='header'>
   <div class='header__container'>
     <div class='header__logo'>
       <a href={`${import.meta.env.BASE_URL}/`}>
-        <img src={logo.src} alt='Лого'>
+        <img src={logo.src} alt='Лого' />
         <span>СтальТехСервис</span>
       </a>
     </div>
@@ -29,7 +29,7 @@ import logo from '../assets/images/logo1.png';
               viewBox='0 0 10 6'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
-							id='services-button-icon'
+              id='services-button-icon'
             >
               <path
                 d='M1 1L5 5L9 1'
@@ -43,7 +43,9 @@ import logo from '../assets/images/logo1.png';
           </button>
           <ul class='header__submenu' aria-labelledby='services-button'>
             <li class='header__submenu-item'>
-              <a href={`${import.meta.env.BASE_URL}/services/manufacturing`} class='header__submenu-link'>Изготовление</a>
+              <a href={`${import.meta.env.BASE_URL}/services/manufacturing`} class='header__submenu-link'>
+                Изготовление
+              </a>
             </li>
             <li class='header__submenu-item'>
               <a href={`${import.meta.env.BASE_URL}/services/installation`} class='header__submenu-link'>Монтаж</a>
@@ -119,7 +121,7 @@ import logo from '../assets/images/logo1.png';
   }
 
   const servicesButton = document.getElementById("services-button");
-	const servicesButtonIcon = document.getElementById("services-button-icon");
+  const servicesButtonIcon = document.getElementById("services-button-icon");
   const servicesDropdown = servicesButton?.nextElementSibling as HTMLElement;
 
   if (servicesButton && servicesDropdown) {
@@ -128,7 +130,7 @@ import logo from '../assets/images/logo1.png';
       const isExpanded = servicesButton.getAttribute("aria-expanded") === "true";
       servicesButton.setAttribute("aria-expanded", String(!isExpanded));
       servicesDropdown.classList.toggle("header__submenu--open");
-			servicesButtonIcon?.classList.toggle("header__menu-icon--open");
+      servicesButtonIcon?.classList.toggle("header__menu-icon--open");
     });
 
     document.addEventListener("click", (e) => {
@@ -136,7 +138,7 @@ import logo from '../assets/images/logo1.png';
       if (target && !servicesButton.contains(target) && !servicesDropdown.contains(target)) {
         servicesButton.setAttribute("aria-expanded", "false");
         servicesDropdown.classList.remove("header__submenu--open");
-				servicesButtonIcon?.classList.remove("header__menu-icon--open");
+        servicesButtonIcon?.classList.remove("header__menu-icon--open");
       }
     });
   }
@@ -147,8 +149,10 @@ import logo from '../assets/images/logo1.png';
     background-color: var(--primary-color);
     color: #ffffff;
     width: 100%;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .header__container {
@@ -226,7 +230,7 @@ import logo from '../assets/images/logo1.png';
     cursor: pointer;
     font-family: inherit;
     transition: opacity 0.2s ease;
-		font-weight: 500;
+    font-weight: 500;
   }
 
   .header__menu-link:hover {
@@ -291,7 +295,7 @@ import logo from '../assets/images/logo1.png';
     text-decoration: none;
     font-size: 16px;
     transition: background-color 0.2s ease;
-		font-weight: 500;
+    font-weight: 500;
   }
 
   .header__submenu-link:hover {
@@ -422,9 +426,9 @@ import logo from '../assets/images/logo1.png';
       padding: 16px 0;
     }
 
-		.header__menu-icon {
-			margin-right: 10px;
-		}
+    .header__menu-icon {
+      margin-right: 10px;
+    }
 
     .header__submenu {
       position: static;
