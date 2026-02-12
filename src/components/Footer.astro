@@ -9,12 +9,13 @@
     </section>
 
     <nav class='footer-section'>
-      <h4>Услуги</h4>
+      <h4>Навигация</h4>
       <ul>
         <li><a href={`${import.meta.env.BASE_URL}/services/manufacturing`}>Изготовление</a></li>
         <li><a href={`${import.meta.env.BASE_URL}/services/installation`}>Монтаж</a></li>
         <li><a href={`${import.meta.env.BASE_URL}/services/design`}>Проектирование</a></li>
         <li><a href={`${import.meta.env.BASE_URL}/services/rent`}>Аренда</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}/catalog`}>Каталог</a></li>
         <li><a href={`${import.meta.env.BASE_URL}/projects`}>Реализованные проекты</a></li>
         <li><a href={`${import.meta.env.BASE_URL}/about`}>О нас</a></li>
       </ul>
@@ -25,7 +26,7 @@
       <p>Телефон: <a href='tel:+375296107899'>+375 (29) 610-78-99</a></p>
       <p>Телефон: <a href='tel:+375291579563'>+375 (29) 157-95-63</a></p>
       <p>Email: <a href='mailto:sts0825@mail.ru'>sts0825@mail.ru</a></p>
-      <p><a href='#callback' class='callback-link'>Заказать звонок</a></p>
+      <p><a class='cta-button'>Заказать звонок</a></p>
     </section>
   </div>
 </footer>
@@ -56,6 +57,10 @@
     color: var(--secondary-color);
     text-decoration: none;
     line-height: 1.5;
+  }
+
+  .footer-section .cta-button {
+    cursor: pointer;
   }
 
   .footer-section a:hover {
