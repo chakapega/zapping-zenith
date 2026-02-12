@@ -1,0 +1,147 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ServiceCTA from "../components/ServiceCTA.astro";
+import Partners from "../components/Partners.astro";
+---
+
+<Layout title='О компании — СтальТехСервис'>
+  <main class='service-page'>
+    <div class='service-page__container'>
+      <Breadcrumbs items={[{ title: "Главная", href: "/" }, { title: "О нас" }]} />
+
+      <SectionHeader
+        title='О компании СтальТехСервис'
+        subtitle='Комплексные решения по металлоконструкциям: проектирование, изготовление и монтаж под задачи вашего объекта.'
+      />
+
+      <div class='service-page__content'>
+        <section class='service-page__section'>
+          <h3>Кто мы</h3>
+          <p>
+            СтальТехСервис — команда инженеров, технологов и производственников, специализирующаяся на металлоизделиях и
+            металлоконструкциях для гражданского и промышленного строительства. Мы объединяем в одном подрядчике
+            проектирование, изготовление и монтаж, чтобы заказчику было удобно работать «под ключ».
+          </p>
+          <p>
+            В нашей зоне ответственности — закладные детали, элементы опалубки, вентиляционные воздуховоды, фасадные
+            металлокассеты, ограждения, МАФ и другие металлоизделия, которые составляют основу надежного и долговечного
+            объекта.
+          </p>
+        </section>
+
+        <section class='service-page__section'>
+          <h3>Наши компетенции</h3>
+          <ul>
+            <li>
+              Проектирование металлоконструкций: разработка КМ и КМД, узлов и закладных деталей с учётом нагрузок и
+              особенностей эксплуатации.
+            </li>
+            <li>
+              Изготовление металлоизделий: полный цикл от раскроя и гибки до сварки и антикоррозийной обработки на
+              собственных мощностях.
+            </li>
+            <li>
+              Монтаж и шефмонтаж: установка металлоконструкций, воздуховодов, фасадных систем и ограждений на объекте.
+            </li>
+            <li>
+              Сопровождение проектов: помощь при подборе технических решений, уточнение узлов, участие в авторском
+              надзоре.
+            </li>
+          </ul>
+        </section>
+
+        <section class='service-page__section'>
+          <h3>Почему выбирают СтальТехСервис</h3>
+          <ul>
+            <li>Работа по ГОСТ, СНиП и проектной документации заказчика.</li>
+            <li>Согласование решений с проектировщиками и генподрядчиками на ранних этапах.</li>
+            <li>Собственный контроль качества на всех стадиях — от чертежа до отгрузки.</li>
+            <li>Понимание реальных условий стройплощадки и требований эксплуатации.</li>
+            <li>Прозрачные расчёты стоимости и понятные сроки выполнения работ.</li>
+          </ul>
+        </section>
+
+        <section class='service-page__section'>
+          <h3>С кем мы работаем</h3>
+          <p>
+            Наши клиенты — девелоперы, генподрядчики, промышленные предприятия, торговые и складские компании, а также
+            частные заказчики. Мы умеем работать как в роли субподрядчика по отдельным видам работ, так и в формате
+            комплексного подрядчика по металлоконструкциям.
+          </p>
+          <p>
+            Для каждого проекта формируем понятное ТЗ, согласуем объемы и сроки, подбираем оптимальные по стоимости и
+            срокам решения без потери надежности и безопасности.
+          </p>
+        </section>
+
+        <section class='service-page__section'>
+          <h3>Нам доверяют</h3>
+          <p>
+            Ниже представлены логотипы компаний и организаций, с которыми мы уже сотрудничали. Для нас важно
+            долгосрочное партнёрство, поэтому мы выстраиваем работу так, чтобы к нам возвращались с новыми объектами.
+          </p>
+
+          <div class="service-page__partners-wrapper">
+            <Partners />
+          </div>
+        </section>
+
+        <ServiceCTA />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .service-page {
+    padding: 24px 20px 60px;
+    background-color: var(--white);
+  }
+
+  .service-page__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .service-page__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .service-page__section h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 12px 0;
+  }
+
+  .service-page__section p,
+  .service-page__section li {
+    font-size: 16px;
+    color: var(--secondary-color);
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+  }
+
+  .service-page__section ul {
+    margin: 0 0 8px 0;
+    padding-left: 24px;
+  }
+
+  .service-page__section li {
+    margin-bottom: 8px;
+  }
+
+  .service-page__partners-wrapper {
+    margin-left: -20px;
+  }
+
+  @media (max-width: 768px) {
+    .service-page {
+      padding: 16px 16px 40px;
+    }
+  }
+</style>
