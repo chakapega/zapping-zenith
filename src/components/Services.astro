@@ -46,12 +46,12 @@ const services: Service[] = [
     image: img1,
     description:
       "Широкий парк строительной опалубки и вспомогательного оборудования в идеальном техническом состоянии. Гибкие сроки аренды и оперативная доставка на объект позволяют вам избежать крупных вложений в покупку собственного снаряжения. Обеспечиваем полное инженерное сопровождение и расчет необходимого комплекта.",
-    link: "/services/rental",
+    link: "/services/rent",
   },
 ];
 ---
 
-<section class='services-section'>
+<section id='services' class='services-section'>
   <div class='services-section__container'>
     <SectionHeader title='Наши услуги' subtitle='Комплексный подход к работе с металлом: от чертежа до готового объекта' />
 
@@ -81,7 +81,7 @@ const services: Service[] = [
               <div class='services-section__description'>
                 <p>{service.description}</p>
               </div>
-              <a href={`${import.meta.env.BASE_URL}/${service.link}`} class='services-section__link'>Подробнее</a>
+              <a href={`${import.meta.env.BASE_URL}${service.link}`} class='services-section__link'>Подробнее</a>
             </div>
           </div>
         ))

@@ -1,0 +1,101 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ServiceCTA from "../../components/ServiceCTA.astro";
+---
+
+<Layout title='Аренда опалубки и оборудования — СтальТехСервис'>
+  <main class='service-page'>
+    <div class='service-page__container'>
+      <Breadcrumbs
+        items={[{ title: "Главная", href: "/" }, { title: "Услуги", href: "/#services" }, { title: "Аренда" }]}
+      />
+      <SectionHeader
+        title='Аренда опалубки и оборудования'
+        subtitle='Широкий парк строительной опалубки и вспомогательного оборудования. Гибкие сроки и оперативная доставка на объект.'
+      />
+
+      <div class='service-page__content'>
+        <section class='service-page__section'>
+          <h3>Что сдаём в аренду</h3>
+          <p>
+            Гибкие сроки аренды и оперативная доставка на объект позволяют избежать крупных вложений в покупку
+            собственного снаряжения. Всё оборудование содержится в идеальном техническом состоянии, проходит осмотр и
+            при необходимости ремонт перед отгрузкой.
+          </p>
+          <ul>
+            <li><strong>Стеновая опалубка</strong> — для монолитных стен, перекрытий, колонн.</li>
+            <li><strong>Крупнощитовая и мелкощитовая опалубка</strong> — под разные типы конструкций.</li>
+            <li><strong>Опалубка перекрытий</strong> — балки, стойки, треноги, унивилки.</li>
+            <li><strong>Подмости, леса, вспомогательные конструкции</strong> — для безопасного ведения работ.</li>
+            <li><strong>Крепёж и расходные материалы</strong> — при необходимости комплектуем под объект.</li>
+          </ul>
+        </section>
+
+        <section class='service-page__section'>
+          <h3>Инженерное сопровождение</h3>
+          <p>
+            Обеспечиваем полное инженерное сопровождение и расчёт необходимого комплекта опалубки под ваш объект.
+            Поможем подобрать оптимальную схему расстановки, количество элементов и сроки аренды с учётом этапов
+            строительства. При необходимости — консультации по монтажу и демонтажу на объекте.
+          </p>
+        </section>
+
+        <section class='service-page__section'>
+          <h3>Условия аренды</h3>
+          <ul>
+            <li>Минимальный срок от 1 месяца, возможны краткосрочные акции</li>
+            <li>Доставка по Минску и регионам Беларуси</li>
+            <li>Прозрачный договор и учёт возврата</li>
+            <li>Замена изношенных элементов по согласованию</li>
+          </ul>
+        </section>
+
+        <ServiceCTA />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .service-page {
+    padding: 24px 20px 60px;
+    background-color: var(--white);
+  }
+
+  .service-page__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .service-page__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .service-page__section h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 12px 0;
+  }
+
+  .service-page__section p,
+  .service-page__section li {
+    font-size: 16px;
+    color: var(--secondary-color);
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+  }
+
+  .service-page__section ul {
+    margin: 0 0 8px 0;
+    padding-left: 24px;
+  }
+
+  .service-page__section li {
+    margin-bottom: 8px;
+  }
+</style>
